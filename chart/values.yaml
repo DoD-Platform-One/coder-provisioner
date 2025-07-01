@@ -13,3 +13,11 @@ upstream:
     image:
       repo: "registry1.dso.mil/ironbank/coder/coder-enterprise/coder-service-2"
       tag: "2.20.3"
+      
+      # coder.image.pullPolicy -- The pull policy to use for the image. See:
+      # https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy
+      pullPolicy: IfNotPresent
+      # coder.image.pullSecrets -- The secrets used for pulling the Coder image from
+      # a private registry.
+      pullSecrets:
+        - name: "private-registry"

@@ -1,0 +1,39 @@
+apiVersion: v2
+name: coder-provisioner
+description: Remote development environments on your infrastructure
+home: https://github.com/coder/coder
+
+type: application
+version: 2.20.3-bb.0
+appVersion: 2.20.3
+
+# Coder has a hard requirement on Kubernetes 1.19, as this version introduced
+# the networking.k8s.io/v1 API.
+kubeVersion: ">= 1.19.0-0"
+
+keywords:
+  - coder
+  - terraform
+sources:
+  - https://github.com/coder/coder/tree/main/helm/provisioner
+icon: https://helm.coder.com/coder_logo_black.png
+maintainers:
+  - name: Coder Technologies, Inc.
+    email: support@coder.com
+    url: https://coder.com/contact
+dependencies:
+  - name: coder-provisioner
+    version: 2.20.3
+    repository: https://helm.coder.com/v2
+    alias: upstream
+annotations:
+  bigbang.dev/passthrough: "true"
+  bigbang.dev/passthrough-toplevel-key: upstream
+  bigbang.dev/maintenanceTrack: community_maintained
+  bigbang.dev/applicationVersions: |
+    - Coder-Provisioner: 2.20.3
+  helm.sh/images: |
+    - name: coder
+      image: registry1.dso.mil/ironbank/coder/coder-enterprise/coder-service-2:2.20.3
+  bigbang.dev/upstreamReleaseNotesMarkdown: |
+    - [Find upstream chart's release notes and CHANGELOG here](https://coder.com/docs/install/releases)

@@ -1,0 +1,27 @@
+###
+# Test overrides
+###
+
+## Boot pod to sleep because it needs a coder server to connect to be happy
+
+upstream:
+  coder:
+    command:
+      - /bin/bash
+      - "-c"
+      - "/bin/echo Container successfully started; sleep infinity"
+
+    commandArgs:
+      - ""
+
+  extraTemplates:
+    - |
+        apiVersion: v1
+        kind: Secret
+        type: Opaque
+        metadata:
+          name: coder-provisioner-psk
+          namespace: "{{ .Release.Namespace }}"
+        data:
+          psk: cHJlc2hhcmVka2V5ZnJvbWNvZGVyCg==
+

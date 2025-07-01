@@ -6,10 +6,10 @@ monitoring:
 
 # Values in `upstream` to pass to the coder chart
 upstream:
-  coder:
-    # override back to 'coder-provisioner' so the chart doesn't refer to itself as 'upstream'
-    nameOverride: coder-provisioner
+  # override back to 'coder-provisioner' so the chart doesn't refer to itself as 'upstream'
+  nameOverride: coder-provisioner
 
+  coder:
     image:
       repo: "registry1.dso.mil/ironbank/coder/coder-enterprise/coder-service-2"
       tag: "2.20.3"

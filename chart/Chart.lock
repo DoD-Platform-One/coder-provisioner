@@ -1,0 +1,6 @@
+dependencies:
+- name: coder-provisioner
+  repository: https://helm.coder.com/v2
+  version: 2.22.1
+digest: sha256:3a2101f94ddc0027f9eccaa478ba6a143c6f98bf7cb10440d22e86fa20e0a8db
+generated: "2025-08-07T09:36:36.753766-06:00"

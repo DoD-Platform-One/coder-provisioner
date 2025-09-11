@@ -1,7 +1,7 @@
 <!-- Warning: Do not manually edit this file. See notes on gluon + helm-docs at the end of this file for more information. -->
 # coder-provisioner
 
-![Version: 2.22.1-bb.0](https://img.shields.io/badge/Version-2.22.1--bb.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.22.1](https://img.shields.io/badge/AppVersion-2.22.1-informational?style=flat-square) ![Maintenance Track: community_maintained](https://img.shields.io/badge/Maintenance_Track-community_maintained-red?style=flat-square)
+![Version: 2.24.3-bb.0](https://img.shields.io/badge/Version-2.24.3--bb.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.24.3](https://img.shields.io/badge/AppVersion-2.24.3-informational?style=flat-square) ![Maintenance Track: community_maintained](https://img.shields.io/badge/Maintenance_Track-community_maintained-red?style=flat-square)
 
 Remote development environments on your infrastructure
 
@@ -48,10 +48,44 @@ helm install coder-provisioner chart/
 | monitoring.enabled | bool | `false` |  |
 | monitoring.namespace | string | `"monitoring"` |  |
 | upstream.nameOverride | string | `"coder-provisioner"` |  |
+| upstream.coder.env | list | `[]` |  |
 | upstream.coder.image.repo | string | `"registry1.dso.mil/ironbank/coder/coder-enterprise/coder-service-2"` |  |
 | upstream.coder.image.tag | string | `"2.22.1"` |  |
 | upstream.coder.image.pullPolicy | string | `"IfNotPresent"` |  |
 | upstream.coder.image.pullSecrets[0].name | string | `"private-registry"` |  |
+| upstream.coder.initContainers | list | `[]` |  |
+| upstream.coder.annotations | object | `{}` |  |
+| upstream.coder.labels | object | `{}` |  |
+| upstream.coder.podAnnotations | object | `{}` |  |
+| upstream.coder.podLabels | object | `{}` |  |
+| upstream.coder.serviceAccount.workspacePerms | bool | `true` |  |
+| upstream.coder.serviceAccount.enableDeployments | bool | `true` |  |
+| upstream.coder.serviceAccount.annotations | object | `{}` |  |
+| upstream.coder.serviceAccount.name | string | `"coder-provisioner"` |  |
+| upstream.coder.serviceAccount.disableCreate | bool | `false` |  |
+| upstream.coder.securityContext.runAsNonRoot | bool | `true` |  |
+| upstream.coder.securityContext.runAsUser | int | `1000` |  |
+| upstream.coder.securityContext.runAsGroup | int | `1000` |  |
+| upstream.coder.securityContext.readOnlyRootFilesystem | string | `nil` |  |
+| upstream.coder.securityContext.seccompProfile.type | string | `"RuntimeDefault"` |  |
+| upstream.coder.securityContext.allowPrivilegeEscalation | bool | `false` |  |
+| upstream.coder.volumes | list | `[]` |  |
+| upstream.coder.volumeMounts | list | `[]` |  |
+| upstream.coder.replicaCount | int | `1` |  |
+| upstream.coder.lifecycle | object | `{}` |  |
+| upstream.coder.resources | object | `{}` |  |
+| upstream.coder.certs.secrets | list | `[]` |  |
+| upstream.coder.affinity | object | `{}` |  |
+| upstream.coder.tolerations | object | `{}` |  |
+| upstream.coder.nodeSelector | object | `{}` |  |
+| upstream.coder.command[0] | string | `"/opt/coder"` |  |
+| upstream.coder.commandArgs | list | `[]` |  |
+| upstream.provisionerDaemon.pskSecretName | string | `"coder-provisioner-psk"` |  |
+| upstream.provisionerDaemon.keySecretName | string | `""` |  |
+| upstream.provisionerDaemon.keySecretKey | string | `"key"` |  |
+| upstream.provisionerDaemon.tags | object | `{}` |  |
+| upstream.provisionerDaemon.terminationGracePeriodSeconds | int | `600` |  |
+| upstream.extraTemplates | string | `nil` |  |
 
 ## Contributing
 

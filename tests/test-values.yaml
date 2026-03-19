@@ -3,25 +3,36 @@
 ###
 
 ## Boot pod to sleep because it needs a coder server to connect to be happy
+packages:
+  coder-provisioner:
+    enabled: true
+    namespace:
+      name: coder-provisioner
+    helmRelease:
+      namespace: "bigbang"
+    sourceType: "git"
+    git:
+      repo: https://repo1.dso.mil/big-bang/product/community/coder-provisioner
+      path: "./chart"
+    values:
+      upstream:
+        coder:
+          command:
+            - /bin/bash
+            - "-c"
+            - "/bin/echo Container successfully started; sleep infinity"
 
-upstream:
-  coder:
-    command:
-      - /bin/bash
-      - "-c"
-      - "/bin/echo Container successfully started; sleep infinity"
+          commandArgs:
+            - ""
 
-    commandArgs:
-      - ""
-
-  extraTemplates:
-    - |
-        apiVersion: v1
-        kind: Secret
-        type: Opaque
-        metadata:
-          name: coder-provisioner-psk
-          namespace: "{{ .Release.Namespace }}"
-        data:
-          psk: cHJlc2hhcmVka2V5ZnJvbWNvZGVyCg==
+        extraTemplates:
+          - |
+              apiVersion: v1
+              kind: Secret
+              type: Opaque
+              metadata:
+                name: coder-provisioner-psk
+                namespace: "{{ .Release.Namespace }}"
+              data:
+                psk: cHJlc2hhcmVka2V5ZnJvbWNvZGVyCg==
 

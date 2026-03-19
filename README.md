@@ -1,7 +1,7 @@
 <!-- Warning: Do not manually edit this file. See notes on gluon + helm-docs at the end of this file for more information. -->
 # coder-provisioner
 
-![Version: 2.24.3-bb.0](https://img.shields.io/badge/Version-2.24.3--bb.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.24.3](https://img.shields.io/badge/AppVersion-2.24.3-informational?style=flat-square) ![Maintenance Track: community_maintained](https://img.shields.io/badge/Maintenance_Track-community_maintained-red?style=flat-square)
+![Version: 2.28.5-bb.0](https://img.shields.io/badge/Version-2.28.5--bb.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.28.5](https://img.shields.io/badge/AppVersion-2.28.5-informational?style=flat-square) ![Maintenance Track: community_maintained](https://img.shields.io/badge/Maintenance_Track-community_maintained-red?style=flat-square)
 
 Remote development environments on your infrastructure
 
@@ -50,7 +50,7 @@ helm install coder-provisioner chart/
 | upstream.nameOverride | string | `"coder-provisioner"` |  |
 | upstream.coder.env | list | `[]` |  |
 | upstream.coder.image.repo | string | `"registry1.dso.mil/ironbank/coder/coder-enterprise/coder-service-2"` |  |
-| upstream.coder.image.tag | string | `"2.22.1"` |  |
+| upstream.coder.image.tag | string | `"2.28.5"` |  |
 | upstream.coder.image.pullPolicy | string | `"IfNotPresent"` |  |
 | upstream.coder.image.pullSecrets[0].name | string | `"private-registry"` |  |
 | upstream.coder.initContainers | list | `[]` |  |

@@ -4,6 +4,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [2.30.4-bb.0] (2026-03-21)
+### Changed
+
 ## [2.28.5-bb.0] (2026-03-02)
 ### Updated
 - coder updated from 2.24.3 to 2.28.5

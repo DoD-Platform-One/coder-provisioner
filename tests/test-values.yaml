@@ -24,15 +24,16 @@ packages:
 
           commandArgs:
             - ""
-
+        provisionerDaemon:
+          pskSecretName: "coder-provisioner-psk"
+          keySecretName: ""
         extraTemplates:
           - |
-              apiVersion: v1
-              kind: Secret
-              type: Opaque
-              metadata:
-                name: coder-provisioner-psk
-                namespace: "{{ .Release.Namespace }}"
-              data:
-                psk: cHJlc2hhcmVka2V5ZnJvbWNvZGVyCg==
-
+            apiVersion: v1
+            kind: Secret
+            type: Opaque
+            metadata:
+              name: coder-provisioner-psk
+              namespace: coder-provisioner
+            data:
+              psk: cHJlc2hhcmVka2V5ZnJvbWNvZGVyCg==

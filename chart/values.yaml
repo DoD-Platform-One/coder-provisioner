@@ -13,8 +13,8 @@ upstream:
     env: []
     image:
       repo: "registry1.dso.mil/ironbank/coder/coder-enterprise/coder-service-2"
-      tag: "2.28.5"
-      
+      tag: "2.30.3"
+
       # coder.image.pullPolicy -- The pull policy to use for the image. See:
       # https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy
       pullPolicy: IfNotPresent
@@ -28,8 +28,7 @@ upstream:
 
     # coder.initContainers -- Init containers for the deployment. See:
     # https://kubernetes.io/docs/concepts/workloads/pods/init-containers/
-    initContainers:
-      []
+    initContainers: []
       # - name: init-container
       #   image: busybox:1.28
       #   command: ['sh', '-c', "sleep 2"]
@@ -116,8 +115,7 @@ upstream:
     # coder.lifecycle -- container lifecycle handlers for the Coder container, allowing
     # for lifecycle events such as postStart and preStop events
     # See: https://kubernetes.io/docs/tasks/configure-pod-container/attach-handler-lifecycle-event/
-    lifecycle:
-      {}
+    lifecycle: {}
       # postStart:
       #   exec:
       #     command: ["/bin/sh", "-c", "echo postStart"]
@@ -127,8 +125,7 @@ upstream:
 
     # coder.resources -- The resources to request for Coder. These are optional
     # and are not set by default.
-    resources:
-      {}
+    resources: {}
       # limits:
       #   cpu: 2000m
       #   memory: 4096Mi
@@ -144,14 +141,12 @@ upstream:
       #
       # The given key in each secret is mounted at
       # `/etc/ssl/certs/{secret_name}.crt`.
-      secrets:
-        []
+      secrets: []
         # - name: "my-ca-bundle"
         #   key: "ca-bundle.crt"
 
     # coder.affinity -- Allows specifying an affinity rule for the deployment.
-    affinity:
-      {}
+    affinity: {}
       #  podAntiAffinity:
       #    preferredDuringSchedulingIgnoredDuringExecution:
       #      - podAffinityTerm:
@@ -166,8 +161,7 @@ upstream:
 
     # coder.tolerations -- Tolerations for tainted nodes.
     # See: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
-    tolerations:
-      {}
+    tolerations: {}
       # - key: "key"
       #   operator: "Equal"
       #   value: "value"
@@ -195,7 +189,7 @@ upstream:
     # NOTE: We no longer recommend using PSKs. Please consider using provisioner
     # keys instead. They have a number of benefits, including the ability to
     # rotate them easily.
-    pskSecretName: "coder-provisioner-psk"
+    pskSecretName: ""
 
     # provisionerDaemon.keySecretName -- The name of the Kubernetes
     # secret that contains a provisioner key to use to authenticate with Coder.
@@ -206,7 +200,7 @@ upstream:
     # from the default value and provisionerDaemon.keySecretName is set, then
     # provisionerDaemon.keySecretName and provisionerDaemon.keySecretKey will take
     # precedence over provisionerDaemon.pskSecretName.
-    keySecretName: ""
+    keySecretName: "override this"
     # provisionerDaemon.keySecretKey -- The key of the Kubernetes
     # secret specified in provisionerDaemon.keySecretName that contains
     # the provisioner key. Defaults to "key".
@@ -217,8 +211,7 @@ upstream:
     # See: https://coder.com/docs/admin/provisioners#provisioner-tags
     # NOTE: it is not permitted to specify both provisionerDaemon.tags and
     # provsionerDaemon.keySecretName.
-    tags:
-      {}
+    tags: {}
       # location: usa
       # provider: kubernetes
 
